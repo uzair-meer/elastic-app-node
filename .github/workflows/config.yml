@@ -25,5 +25,8 @@ jobs:
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set region eu-north-1
 
+      - name: Initialize Elastic Beanstalk
+        run: eb init -p "64bit Amazon Linux 2" --region eu-north-1 elastic3
+
       - name: Deploy to Elastic Beanstalk
         run: eb deploy elastic3-dev
